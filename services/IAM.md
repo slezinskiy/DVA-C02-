@@ -1,35 +1,34 @@
 # AWS IAM
 
-**Категорія:** Security, Identity, and Compliance
-
+**Категорія:** Security, Identity, and Compliance  
 **Призначення:** Керування principals, permissions, roles та policies
 для AWS APIs і ресурсів.
 
 ## Словник термінів
 
-| Термін                     | Визначення                                                                                                         |
-|----------------------------|--------------------------------------------------------------------------------------------------------------------|
-| **Principal**              | Суб’єкт AWS запиту: user, role, service або federated identity.                                                    |
-| **User**                   | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Group**                  | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Role**                   | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Policy**                 | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Identity-based**         | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Resource-based**         | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Trust Policy**           | Політика IAM Role, що визначає, хто може assume цю роль.                                                           |
-| **Action**                 | Операція всередині stage, наприклад source/build/deploy/approval.                                                  |
-| **Resource ARN**           | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Effect**                 | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Condition**              | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Explicit/Implicit Deny** | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Least Privilege**        | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Managed/Inline Policy**  | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Permission Boundary**    | Максимальна межа permissions, яку може отримати IAM principal.                                                     |
-| **Session Policy**         | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **ABAC**                   | Attribute-Based Access Control — авторизація на основі атрибутів/тегів.                                            |
-| **MFA**                    | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Access Key**             | У контексті AWS IAM це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Instance Profile**       | Контейнер, через який IAM Role прикріплюється до EC2 instance.                                                     |
+| Термін                     | Визначення українською                                                                                                                |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| **Principal**              | Суб’єкт, від імені якого виконується AWS request: IAM user, role session, federated user або AWS service.                             |
+| **User**                   | IAM identity для людини або застосунку; для AWS workloads зазвичай рекомендовано roles замість довготривалих user keys.               |
+| **Group**                  | Колекція IAM users зі спільними identity-based policies.                                                                              |
+| **Role**                   | IAM identity з permissions і trust policy, яку principal може assume для тимчасових credentials.                                      |
+| **Policy**                 | JSON документ зі statements, що визначають Allow/Deny для actions, resources та conditions.                                           |
+| **Identity-based**         | Policy, прикріплена до user/group/role і яка визначає permissions identity.                                                           |
+| **Resource-based**         | Policy на самому resource, яка визначає, які principals можуть звертатися до нього.                                                   |
+| **Trust Policy**           | Політика IAM role, що визначає, які principals можуть викликати sts:AssumeRole або іншу дозволену операцію отримання ролі.            |
+| **Action**                 | Назва AWS API permission у policy, наприклад s3:GetObject.                                                                            |
+| **Resource ARN**           | Amazon Resource Name, що ідентифікує resource у policy Resource element.                                                              |
+| **Effect**                 | Значення Allow або Deny для policy statement.                                                                                         |
+| **Condition**              | Додаткові умови застосування statement, наприклад source IP, MFA або resource tags.                                                   |
+| **Explicit/Implicit Deny** | Explicit deny — пряма заборона; implicit deny — відсутність Allow. Explicit deny має пріоритет.                                       |
+| **Least Privilege**        | Принцип надання лише мінімально необхідних permissions.                                                                               |
+| **Managed/Inline Policy**  | Managed policy — окремий повторно використовуваний об’єкт; inline policy вбудована в одну identity.                                   |
+| **Permission Boundary**    | Політика, яка задає максимальну множину permissions для IAM user або role; сама по собі не надає дозволів.                            |
+| **Session Policy**         | Додаткова policy, що обмежує permissions тимчасової role session, але не розширює їх.                                                 |
+| **ABAC**                   | Attribute-Based Access Control — модель доступу, у якій permissions визначаються атрибутами principals і resources, часто через tags. |
+| **MFA**                    | Multi-Factor Authentication — додатковий фактор підтвердження identity.                                                               |
+| **Access Key**             | Пара access key ID і secret access key для підписання AWS API requests; секретний ключ не можна розкривати.                           |
+| **Instance Profile**       | Контейнер для IAM role, який прикріплюється до EC2 instance і надає тимчасові credentials застосункам на інстансі.                    |
 
 ## Типовий екзаменаційний сценарій
 
@@ -41,14 +40,18 @@ Lambda/EC2 має викликати AWS API → надати execution/instance
 Explicit Deny перекриває Allow. Не вбудовуйте довготривалі access keys у
 код.
 
-## Що повторити
+## Як готуватися до цього сервісу
 
-- Призначення сервісу та типові сценарії використання.
-- Основні API, інтеграції та необхідні IAM permissions.
-- Обробку помилок, retries, throttling і logging, якщо вони застосовні.
-- Обмеження та взаємодію з іншими AWS-сервісами.
+- Розпізнавайте, яку проблему сервіс вирішує, і коли його обирати
+  замість альтернатив.
+- Звертайте увагу на IAM permissions, resource policies та service
+  roles.
+- Розумійте event flow, retries, idempotency, throttling і dead-letter
+  handling, якщо вони застосовні.
+- Порівнюйте availability, consistency, scaling, latency та cost
+  trade-offs.
 
-## Офіційна документація
+## Офіційні джерела
 
 - [AWS Documentation — AWS IAM](https://docs.aws.amazon.com/)
 - [DVA-C02 Exam

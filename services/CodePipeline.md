@@ -1,26 +1,25 @@
 # AWS CodePipeline
 
-**Категорія:** Developer Tools
-
+**Категорія:** Developer Tools  
 **Призначення:** Керований CI/CD pipeline, що з’єднує source, build,
 test, approval та deploy actions.
 
 ## Словник термінів
 
-| Термін                  | Визначення                                                                                                                  |
-|-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| **Pipeline**            | У контексті AWS CodePipeline це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Stage**               | Розгорнутий environment API Gateway, наприклад dev або prod.                                                                |
-| **Action**              | Операція всередині stage, наприклад source/build/deploy/approval.                                                           |
-| **Source**              | У контексті AWS CodePipeline це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Build**               | У контексті AWS CodePipeline це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Deploy**              | У контексті AWS CodePipeline це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Artifact**            | Результат build або пакет, який передається між етапами pipeline.                                                           |
-| **Artifact Store**      | У контексті AWS CodePipeline це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Approval**            | У контексті AWS CodePipeline це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Change Detection**    | У контексті AWS CodePipeline це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Execution Mode**      | У контексті AWS CodePipeline це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Cross-Region Action** | У контексті AWS CodePipeline це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
+| Термін                  | Визначення українською                                                                          |
+|-------------------------|-------------------------------------------------------------------------------------------------|
+| **Pipeline**            | Автоматизований workflow доставки змін від source через build/test до deploy.                   |
+| **Stage**               | Послідовний етап pipeline, який містить actions і виконується у визначеному порядку.            |
+| **Action**              | Операція всередині CodePipeline stage, наприклад Source, Build, Test, Approval або Deploy.      |
+| **Source**              | Етап або provider pipeline, який отримує вихідний код/артефакт із Git, S3 чи іншого джерела.    |
+| **Build**               | Етап CI, що компілює код, запускає тести та формує build artifacts.                             |
+| **Deploy**              | Етап доставки application artifact до цільового середовища.                                     |
+| **Artifact**            | Файл або набір файлів, переданий між actions/stages через artifact store.                       |
+| **Artifact Store**      | S3 bucket, де CodePipeline зберігає artifacts між actions і stages.                             |
+| **Approval**            | Manual approval action, що призупиняє pipeline до рішення уповноваженої особи.                  |
+| **Change Detection**    | Механізм виявлення змін у source provider, який запускає нове pipeline execution.               |
+| **Execution Mode**      | Режим обробки паралельних запусків pipeline: SUPERSEDED, QUEUED або PARALLEL.                   |
+| **Cross-Region Action** | Action в іншому AWS Region; потребує належних permissions і artifact store у регіоні виконання. |
 
 ## Типовий екзаменаційний сценарій
 
@@ -31,14 +30,18 @@ test, approval та deploy actions.
 Pipeline складається з stages/actions; сам build може виконувати
 CodeBuild.
 
-## Що повторити
+## Як готуватися до цього сервісу
 
-- Призначення сервісу та типові сценарії використання.
-- Основні API, інтеграції та необхідні IAM permissions.
-- Обробку помилок, retries, throttling і logging, якщо вони застосовні.
-- Обмеження та взаємодію з іншими AWS-сервісами.
+- Розпізнавайте, яку проблему сервіс вирішує, і коли його обирати
+  замість альтернатив.
+- Звертайте увагу на IAM permissions, resource policies та service
+  roles.
+- Розумійте event flow, retries, idempotency, throttling і dead-letter
+  handling, якщо вони застосовні.
+- Порівнюйте availability, consistency, scaling, latency та cost
+  trade-offs.
 
-## Офіційна документація
+## Офіційні джерела
 
 - [AWS Documentation — AWS CodePipeline](https://docs.aws.amazon.com/)
 - [DVA-C02 Exam

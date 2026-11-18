@@ -1,13 +1,24 @@
-# AWS Certified Developer – Associate (DVA-C02): українська бібліотека термінів
+# AWS Certified Developer – Associate (DVA-C02): український глосарій
 
 **Мова:** українська  
-**Формат:** Markdown  
-**Охоплення:** 47 сервісів, 10 категорій
+**Формат:** GitHub Flavored Markdown (GFM)  
+**Охоплення:** 47 окремих сервісів, 702 сервісних термінів, 10
+тематичних категорій.
 
-> Навчальний конспект для DVA-C02. Перевіряйте актуальні вимоги та
-> статус іспиту на офіційній сторінці AWS Certification.
+Це навчальний глосарій для підготовки до AWS Certified Developer –
+Associate (DVA-C02). Визначення відредаговані з урахуванням контексту
+конкретного AWS-сервісу. Однакові терміни можуть мати різне значення в
+різних сервісах, тому контекст зазначено явно.
 
-## Тематичні документи
+## Структура
+
+- `services/` — окремий документ для кожного AWS-сервісу.
+- `01_Analytics.md` – `10_Storage.md` — тематичні довідники за
+  категоріями.
+- `11_Exam_Cross_Reference.md` — міжсервісні порівняння та підказки для
+  вибору сервісу.
+
+## Окремі документи за категоріями
 
 - [Analytics](01_Analytics.md)
 - [Application Integration](02_Application_Integration.md)
@@ -20,46 +31,19 @@
 - [Security, Identity, and Compliance](09_Security.md)
 - [Storage](10_Storage.md)
 
-## Окремі документи для кожного сервісу
+## Окремі документи за сервісами
 
-### Analytics
+### Networking and Content Delivery
 
-- [Amazon Athena](services/Athena.md)
+- [Amazon API Gateway](services/API_Gateway.md)
 
-- [Amazon Kinesis](services/Kinesis.md)
+- [Amazon CloudFront](services/CloudFront.md)
 
-- [Amazon OpenSearch Service](services/OpenSearch_Service.md) \###
-  Application Integration
+- [Elastic Load Balancing](services/Elastic_Load_Balancing.md)
 
-- [AWS AppSync](services/AppSync.md)
+- [Amazon Route 53](services/Route_53.md)
 
-- [Amazon EventBridge](services/EventBridge.md)
-
-- [Amazon SNS](services/SNS.md)
-
-- [Amazon SQS](services/SQS.md)
-
-- [AWS Step Functions](services/Step_Functions.md) \### Compute
-
-- [Amazon EC2](services/EC2.md)
-
-- [AWS Elastic Beanstalk](services/Elastic_Beanstalk.md)
-
-- [AWS Lambda](services/Lambda.md) \### Containers
-
-- [Amazon ECR](services/ECR.md)
-
-- [Amazon ECS](services/ECS.md)
-
-- [Amazon EKS](services/EKS.md) \### Database
-
-- [Amazon Aurora](services/Aurora.md)
-
-- [Amazon DynamoDB](services/DynamoDB.md)
-
-- [Amazon ElastiCache](services/ElastiCache.md)
-
-- [Amazon RDS](services/RDS.md) \### Developer Tools
+- [Amazon VPC](services/VPC.md) \### Developer Tools
 
 - [AWS Amplify](services/Amplify.md)
 
@@ -73,14 +57,15 @@
 
 - [AWS CodePipeline](services/CodePipeline.md)
 
-- [AWS X-Ray](services/X_Ray.md)
+- [Amazon Q Developer](services/Q_Developer.md)
 
-- [Amazon Q Developer](services/Q_Developer.md) \### Management and
-  Governance
+- [AWS X-Ray](services/X_Ray.md) \### Management and Governance
 
 - [AWS AppConfig](services/AppConfig.md)
 
 - [AWS CDK](services/CDK.md)
+
+- [AWS CLI](services/CLI.md)
 
 - [AWS CloudFormation](services/CloudFormation.md)
 
@@ -88,20 +73,33 @@
 
 - [Amazon CloudWatch](services/CloudWatch.md)
 
-- [AWS CLI](services/CLI.md)
+- [AWS Systems Manager](services/Systems_Manager.md) \### Application
+  Integration
 
-- [AWS Systems Manager](services/Systems_Manager.md) \### Networking and
-  Content Delivery
+- [AWS AppSync](services/AppSync.md)
 
-- [Amazon API Gateway](services/API_Gateway.md)
+- [Amazon EventBridge](services/EventBridge.md)
 
-- [Amazon CloudFront](services/CloudFront.md)
+- [Amazon SNS](services/SNS.md)
 
-- [Elastic Load Balancing](services/Elastic_Load_Balancing.md)
+- [Amazon SQS](services/SQS.md)
 
-- [Amazon Route 53](services/Route_53.md)
+- [AWS Step Functions](services/Step_Functions.md) \### Analytics
 
-- [Amazon VPC](services/VPC.md) \### Security, Identity, and Compliance
+- [Amazon Athena](services/Athena.md)
+
+- [Amazon Kinesis](services/Kinesis.md)
+
+- [Amazon OpenSearch Service](services/OpenSearch_Service.md) \###
+  Database
+
+- [Amazon Aurora](services/Aurora.md)
+
+- [Amazon DynamoDB](services/DynamoDB.md)
+
+- [Amazon ElastiCache](services/ElastiCache.md)
+
+- [Amazon RDS](services/RDS.md) \### Security, Identity, and Compliance
 
 - [Amazon Cognito](services/Cognito.md)
 
@@ -109,9 +107,9 @@
 
 - [AWS KMS](services/KMS.md)
 
-- [AWS Secrets Manager](services/Secrets_Manager.md)
-
 - [AWS STS](services/STS.md)
+
+- [AWS Secrets Manager](services/Secrets_Manager.md)
 
 - [AWS WAF](services/WAF.md) \### Storage
 
@@ -119,17 +117,31 @@
 
 - [Amazon EFS](services/EFS.md)
 
-- [Amazon S3](services/S3.md)
+- [Amazon S3](services/S3.md) \### Compute
 
-## Додаткові матеріали
+- [Amazon EC2](services/EC2.md)
 
-- [Міжсервісні порівняння та екзаменаційні
-  сценарії](11_Exam_Cross_Reference.md)
+- [AWS Elastic Beanstalk](services/Elastic_Beanstalk.md)
+
+- [AWS Lambda](services/Lambda.md) \### Containers
+
+- [Amazon ECR](services/ECR.md)
+
+- [Amazon ECS](services/ECS.md)
+
+- [Amazon EKS](services/EKS.md)
+
+## Як використовувати глосарій
+
+1.  Спочатку прочитайте призначення сервісу.
+2.  Вивчіть терміни та зверніть увагу на відмінності від схожих
+    сервісів.
+3.  Пов’яжіть терміни з типовим екзаменаційним сценарієм і пасткою.
+4.  Перевіряйте актуальні API limits, service features та exam guide в
+    офіційній документації AWS.
 
 ## Офіційні джерела
 
 - [DVA-C02 Exam
   Guide](https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02.html)
-- [In-Scope AWS
-  Services](https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/dva-02-in-scope-services.html)
 - [AWS Certification](https://aws.amazon.com/certification/)

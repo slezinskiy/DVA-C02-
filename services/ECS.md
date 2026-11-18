@@ -1,30 +1,29 @@
 # Amazon ECS
 
-**Категорія:** Containers
-
+**Категорія:** Containers  
 **Призначення:** AWS-native оркестратор контейнерів на EC2 або Fargate.
 
 ## Словник термінів
 
-| Термін                   | Визначення                                                                                                            |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| **Cluster**              | У контексті Amazon ECS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Task Definition**      | Опис контейнерів, ресурсів, ролей, мережі та налаштувань ECS task.                                                    |
-| **Task**                 | Стан Step Functions, який виконує роботу через сервісну інтеграцію або код.                                           |
-| **Service**              | Стабільна мережева абстракція для доступу до Kubernetes Pods.                                                         |
-| **Container Definition** | У контексті Amazon ECS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **EC2 Launch Type**      | У контексті Amazon ECS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Fargate**              | У контексті Amazon ECS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Capacity Provider**    | У контексті Amazon ECS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Desired Count**        | У контексті Amazon ECS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Deployment**           | Kubernetes controller для декларативного rollout і підтримки ReplicaSets.                                             |
-| **Task Role**            | IAM Role для коду, який виконується всередині ECS task.                                                               |
-| **Task Execution Role**  | IAM Role для ECS/Fargate agent: pull image, logs, startup secrets.                                                    |
-| **awsvpc**               | У контексті Amazon ECS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Service Discovery**    | У контексті Amazon ECS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Health Check**         | Перевірка доступності та працездатності target.                                                                       |
-| **Service Auto Scaling** | У контексті Amazon ECS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **ECS Exec**             | У контексті Amazon ECS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
+| Термін                   | Визначення українською                                                                                                         |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| **Cluster**              | Логічна група ECS tasks, services і capacity providers.                                                                        |
+| **Task Definition**      | Шаблон ECS task: опис контейнерів, образів, CPU/memory, мережі, volumes, logging та IAM roles.                                 |
+| **Task**                 | Запущений екземпляр ECS task definition, який містить один або кілька контейнерів.                                             |
+| **Service**              | Контролер ECS, що підтримує desired count tasks і керує їх deployments та load balancing.                                      |
+| **Container Definition** | Опис одного контейнера в task definition: image, ports, resources, environment, logging і secrets.                             |
+| **EC2 Launch Type**      | Режим ECS, де tasks розміщуються на EC2 instances, якими керує користувач.                                                     |
+| **Fargate**              | Serverless compute engine для контейнерів, де AWS керує серверами, а користувач задає ресурси task.                            |
+| **Capacity Provider**    | Механізм ECS для визначення способу надання capacity через Fargate або EC2 Auto Scaling.                                       |
+| **Desired Count**        | Кількість tasks, яку ECS service має підтримувати.                                                                             |
+| **Deployment**           | Процес заміни старих tasks новою revision task definition.                                                                     |
+| **Task Role**            | IAM role, доступна коду всередині ECS task для звернення до AWS services.                                                      |
+| **Task Execution Role**  | IAM role, яку ECS agent/Fargate використовує для запуску task: завантаження image з ECR, надсилання logs та отримання secrets. |
+| **awsvpc**               | ECS network mode, у якому кожен task отримує власний ENI та приватну IP-адресу.                                                |
+| **Service Discovery**    | Інтеграція ECS із AWS Cloud Map для виявлення tasks через DNS/API.                                                             |
+| **Health Check**         | Перевірка стану container або load balancer target, що впливає на заміну task і routing.                                       |
+| **Service Auto Scaling** | Автоматична зміна desired count ECS service на основі CloudWatch metrics/policies.                                             |
+| **ECS Exec**             | Механізм запуску команд у працюючому контейнері ECS через захищений канал.                                                     |
 
 ## Типовий екзаменаційний сценарій
 
@@ -35,14 +34,18 @@
 Task Role належить застосунку в контейнері; Task Execution Role потрібна
 агенту ECS для pull image, logs та startup secrets.
 
-## Що повторити
+## Як готуватися до цього сервісу
 
-- Призначення сервісу та типові сценарії використання.
-- Основні API, інтеграції та необхідні IAM permissions.
-- Обробку помилок, retries, throttling і logging, якщо вони застосовні.
-- Обмеження та взаємодію з іншими AWS-сервісами.
+- Розпізнавайте, яку проблему сервіс вирішує, і коли його обирати
+  замість альтернатив.
+- Звертайте увагу на IAM permissions, resource policies та service
+  roles.
+- Розумійте event flow, retries, idempotency, throttling і dead-letter
+  handling, якщо вони застосовні.
+- Порівнюйте availability, consistency, scaling, latency та cost
+  trade-offs.
 
-## Офіційна документація
+## Офіційні джерела
 
 - [AWS Documentation — Amazon ECS](https://docs.aws.amazon.com/)
 - [DVA-C02 Exam

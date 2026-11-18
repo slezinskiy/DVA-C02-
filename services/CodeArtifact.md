@@ -1,28 +1,27 @@
 # AWS CodeArtifact
 
-**Категорія:** Developer Tools
-
+**Категорія:** Developer Tools  
 **Призначення:** Керований приватний repository для пакетів і програмних
 залежностей.
 
 ## Словник термінів
 
-| Термін                  | Визначення                                                                                                                  |
-|-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| **Domain**              | Кероване середовище OpenSearch Service з налаштуваннями кластера.                                                           |
-| **Repository**          | Логічне сховище пакетів або container images.                                                                               |
-| **Package**             | У контексті AWS CodeArtifact це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Package Version**     | У контексті AWS CodeArtifact це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **npm**                 | У контексті AWS CodeArtifact це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Maven**               | У контексті AWS CodeArtifact це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **PyPI**                | У контексті AWS CodeArtifact це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **NuGet**               | У контексті AWS CodeArtifact це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Upstream Repository** | У контексті AWS CodeArtifact це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **External Connection** | У контексті AWS CodeArtifact це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Repository Policy**   | У контексті AWS CodeArtifact це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Auth Token**          | У контексті AWS CodeArtifact це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Publish**             | У контексті AWS CodeArtifact це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Install**             | У контексті AWS CodeArtifact це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
+| Термін                  | Визначення українською                                                                                        |
+|-------------------------|---------------------------------------------------------------------------------------------------------------|
+| **Domain**              | Керований deployment OpenSearch Service, що містить кластер, мережеві та security налаштування.               |
+| **Repository**          | Логічне сховище CodeArtifact packages або ECR container images; конкретна структура залежить від сервісу.     |
+| **Package**             | Окрема бібліотека або програмний компонент, опублікований у package repository разом із версіями та metadata. |
+| **Package Version**     | Конкретний незмінний реліз пакета з власними artifacts і metadata.                                            |
+| **npm**                 | JavaScript package manager/registry format, який CodeArtifact може проксувати, зберігати та обслуговувати.    |
+| **Maven**               | Java build ecosystem і формат координат/артефактів, який CodeArtifact підтримує як repository format.         |
+| **PyPI**                | Python Package Index — екосистема пакетів Python, яку CodeArtifact може зберігати та обслуговувати.           |
+| **NuGet**               | .NET package ecosystem, який CodeArtifact підтримує для зберігання та поширення пакетів.                      |
+| **Upstream Repository** | Інший CodeArtifact repository, з якого repository може отримувати packages, якщо локально їх немає.           |
+| **External Connection** | Зв’язок CodeArtifact repository з публічним package repository, наприклад npmjs або PyPI.                     |
+| **Repository Policy**   | Resource policy CodeArtifact repository, яка визначає, які principals можуть читати/публікувати packages.     |
+| **Auth Token**          | Тимчасовий authorization token, який клієнт використовує для автентифікації до CodeArtifact repository.       |
+| **Publish**             | Операція завантаження нової package version до CodeArtifact repository.                                       |
+| **Install**             | Операція отримання package та його залежностей із налаштованого repository.                                   |
 
 ## Типовий екзаменаційний сценарій
 
@@ -33,14 +32,18 @@ CodeArtifact.
 
 CodeArtifact зберігає пакети; ECR зберігає container images.
 
-## Що повторити
+## Як готуватися до цього сервісу
 
-- Призначення сервісу та типові сценарії використання.
-- Основні API, інтеграції та необхідні IAM permissions.
-- Обробку помилок, retries, throttling і logging, якщо вони застосовні.
-- Обмеження та взаємодію з іншими AWS-сервісами.
+- Розпізнавайте, яку проблему сервіс вирішує, і коли його обирати
+  замість альтернатив.
+- Звертайте увагу на IAM permissions, resource policies та service
+  roles.
+- Розумійте event flow, retries, idempotency, throttling і dead-letter
+  handling, якщо вони застосовні.
+- Порівнюйте availability, consistency, scaling, latency та cost
+  trade-offs.
 
-## Офіційна документація
+## Офіційні джерела
 
 - [AWS Documentation — AWS CodeArtifact](https://docs.aws.amazon.com/)
 - [DVA-C02 Exam

@@ -1,29 +1,28 @@
 # AWS Systems Manager
 
-**Категорія:** Management and Governance
-
+**Категорія:** Management and Governance  
 **Призначення:** Операційне керування EC2/hybrid nodes, параметрами,
 патчами та автоматизацією.
 
 ## Словник термінів
 
-| Термін                 | Визначення                                                                                                                     |
-|------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| **SSM Agent**          | У контексті AWS Systems Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Managed Node**       | У контексті AWS Systems Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Session Manager**    | SSM можливість інтерактивного доступу до managed node без inbound SSH/RDP ports.                                               |
-| **Run Command**        | Віддалене виконання команд на managed nodes.                                                                                   |
-| **Automation**         | У контексті AWS Systems Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Document**           | JSON-подібний запис, який зберігається та індексується.                                                                        |
-| **Runbook**            | У контексті AWS Systems Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Parameter Store**    | Ієрархічне сховище параметрів і SecureString у Systems Manager.                                                                |
-| **SecureString**       | Параметр Parameter Store, зашифрований через KMS.                                                                              |
-| **Patch Manager**      | У контексті AWS Systems Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Maintenance Window** | У контексті AWS Systems Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **State Manager**      | У контексті AWS Systems Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Inventory**          | У контексті AWS Systems Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Distributor**        | У контексті AWS Systems Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **OpsCenter**          | У контексті AWS Systems Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
+| Термін                 | Визначення українською                                                                                       |
+|------------------------|--------------------------------------------------------------------------------------------------------------|
+| **SSM Agent**          | Агент на managed node, який отримує та виконує Systems Manager commands.                                     |
+| **Managed Node**       | EC2 або підтримуваний on-premises/server node, зареєстрований у Systems Manager.                             |
+| **Session Manager**    | Можливість Systems Manager для інтерактивного доступу до managed nodes без відкриття inbound SSH/RDP портів. |
+| **Run Command**        | Systems Manager функція віддаленого виконання команд або документів на одному чи багатьох managed nodes.     |
+| **Automation**         | Можливість Systems Manager автоматизувати операції над AWS resources та managed nodes через runbooks.        |
+| **Document**           | JSON/YAML опис команди, automation workflow або інструкцій для managed nodes.                                |
+| **Runbook**            | Automation document із послідовністю кроків для remediation або maintenance.                                 |
+| **Parameter Store**    | Ієрархічне сховище Systems Manager для конфігураційних значень і SecureString secrets.                       |
+| **SecureString**       | Зашифрований параметр Systems Manager Parameter Store, який використовує AWS KMS для захисту значення.       |
+| **Patch Manager**      | Функція для сканування та встановлення OS patches на managed nodes.                                          |
+| **Maintenance Window** | Розкладений часовий інтервал для виконання maintenance tasks на вибраних targets.                            |
+| **State Manager**      | Механізм підтримки бажаного стану managed nodes через associations із documents.                             |
+| **Inventory**          | Збір metadata про managed nodes: software, configuration, network та інші дані.                              |
+| **Distributor**        | Функція для пакування, публікації та розгортання програмних пакетів на managed nodes.                        |
+| **OpsCenter**          | Інструмент для централізації operational issues (OpsItems) та їх розслідування.                              |
 
 ## Типовий екзаменаційний сценарій
 
@@ -35,14 +34,18 @@
 Session Manager потребує SSM Agent, IAM permissions і мережевого доступу
 до SSM endpoints.
 
-## Що повторити
+## Як готуватися до цього сервісу
 
-- Призначення сервісу та типові сценарії використання.
-- Основні API, інтеграції та необхідні IAM permissions.
-- Обробку помилок, retries, throttling і logging, якщо вони застосовні.
-- Обмеження та взаємодію з іншими AWS-сервісами.
+- Розпізнавайте, яку проблему сервіс вирішує, і коли його обирати
+  замість альтернатив.
+- Звертайте увагу на IAM permissions, resource policies та service
+  roles.
+- Розумійте event flow, retries, idempotency, throttling і dead-letter
+  handling, якщо вони застосовні.
+- Порівнюйте availability, consistency, scaling, latency та cost
+  trade-offs.
 
-## Офіційна документація
+## Офіційні джерела
 
 - [AWS Documentation — AWS Systems
   Manager](https://docs.aws.amazon.com/)

@@ -1,26 +1,25 @@
 # AWS STS
 
-**Категорія:** Security, Identity, and Compliance
-
+**Категорія:** Security, Identity, and Compliance  
 **Призначення:** Видача тимчасових security credentials для ролей,
 федерації та cross-account access.
 
 ## Словник термінів
 
-| Термін                        | Визначення                                                                                                         |
-|-------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| **Temporary Credentials**     | У контексті AWS STS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **AssumeRole**                | STS операція для отримання тимчасових credentials IAM Role.                                                        |
-| **AssumeRoleWithWebIdentity** | У контексті AWS STS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **AssumeRoleWithSAML**        | У контексті AWS STS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **GetSessionToken**           | У контексті AWS STS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **GetCallerIdentity**         | У контексті AWS STS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Role Session**              | У контексті AWS STS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **External ID**               | Значення для захисту cross-account role assumption від confused deputy.                                            |
-| **Session Duration**          | У контексті AWS STS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Session Name**              | У контексті AWS STS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Session Policy**            | У контексті AWS STS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Web Identity Federation**   | У контексті AWS STS це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
+| Термін                        | Визначення українською                                                                                                          |
+|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| **Temporary Credentials**     | Короткоживучі credentials: access key ID, secret access key і session token.                                                    |
+| **AssumeRole**                | Операція AWS STS, яка дозволяє principal отримати тимчасові credentials для IAM role за умови довіри та дозволів.               |
+| **AssumeRoleWithWebIdentity** | STS API, який обмінює OIDC web identity token на тимчасові credentials IAM role.                                                |
+| **AssumeRoleWithSAML**        | STS API, який обмінює SAML assertion на тимчасові credentials IAM role.                                                         |
+| **GetSessionToken**           | STS API для отримання тимчасових credentials, зокрема для MFA-protected API sessions.                                           |
+| **GetCallerIdentity**         | STS API, який повертає account, ARN і user ID поточного caller.                                                                 |
+| **Role Session**              | Тимчасовий контекст після AssumeRole із власними credentials та строком дії.                                                    |
+| **External ID**               | Додаткове значення в AssumeRole для cross-account access, яке допомагає захистити сторонній сервіс від confused deputy problem. |
+| **Session Duration**          | Час дії тимчасових credentials role session у межах встановлених обмежень.                                                      |
+| **Session Name**              | Ім’я role session, яке відображається в CloudTrail і допомагає ідентифікувати caller.                                           |
+| **Session Policy**            | Додаткова policy для тимчасової session, яка звужує effective permissions.                                                      |
+| **Web Identity Federation**   | Обмін зовнішнього OIDC token на AWS temporary credentials через STS.                                                            |
 
 ## Типовий екзаменаційний сценарій
 
@@ -31,14 +30,18 @@
 Тимчасові credentials мають expiration і session token; External ID
 часто застосовується для third-party cross-account access.
 
-## Що повторити
+## Як готуватися до цього сервісу
 
-- Призначення сервісу та типові сценарії використання.
-- Основні API, інтеграції та необхідні IAM permissions.
-- Обробку помилок, retries, throttling і logging, якщо вони застосовні.
-- Обмеження та взаємодію з іншими AWS-сервісами.
+- Розпізнавайте, яку проблему сервіс вирішує, і коли його обирати
+  замість альтернатив.
+- Звертайте увагу на IAM permissions, resource policies та service
+  roles.
+- Розумійте event flow, retries, idempotency, throttling і dead-letter
+  handling, якщо вони застосовні.
+- Порівнюйте availability, consistency, scaling, latency та cost
+  trade-offs.
 
-## Офіційна документація
+## Офіційні джерела
 
 - [AWS Documentation — AWS STS](https://docs.aws.amazon.com/)
 - [DVA-C02 Exam

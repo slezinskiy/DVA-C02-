@@ -1,29 +1,28 @@
 # AWS Secrets Manager
 
-**Категорія:** Security, Identity, and Compliance
-
+**Категорія:** Security, Identity, and Compliance  
 **Призначення:** Безпечне зберігання, отримання та ротація application
 secrets.
 
 ## Словник термінів
 
-| Термін                   | Визначення                                                                                                                     |
-|--------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| **Secret**               | У контексті AWS Secrets Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Secret Value**         | У контексті AWS Secrets Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Secret ARN**           | У контексті AWS Secrets Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **KMS Encryption**       | У контексті AWS Secrets Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Rotation**             | Заміна секретного значення або key material за розкладом/процедурою.                                                           |
-| **Rotation Lambda**      | У контексті AWS Secrets Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Staging Labels**       | У контексті AWS Secrets Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **AWSCURRENT**           | У контексті AWS Secrets Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **AWSPREVIOUS**          | У контексті AWS Secrets Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **AWSPENDING**           | У контексті AWS Secrets Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Version**              | Незмінний snapshot коду та конфігурації Lambda.                                                                                |
-| **GetSecretValue**       | У контексті AWS Secrets Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Resource Policy**      | Політика на самій Lambda function, що визначає, хто може її викликати.                                                         |
-| **Cross-account Access** | У контексті AWS Secrets Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
-| **Caching**              | У контексті AWS Secrets Manager це поняття описує відповідний елемент сервісу, його налаштування або поведінку під час роботи. |
+| Термін                   | Визначення українською                                                                                     |
+|--------------------------|------------------------------------------------------------------------------------------------------------|
+| **Secret**               | Об’єкт Secrets Manager із конфіденційним значенням, metadata та версіями.                                  |
+| **Secret Value**         | Фактичне секретне значення: пароль БД, API key або credentials JSON.                                       |
+| **Secret ARN**           | Amazon Resource Name, який однозначно ідентифікує secret.                                                  |
+| **KMS Encryption**       | Шифрування secret value за допомогою AWS KMS key.                                                          |
+| **Rotation**             | Процес регулярної заміни секретного значення або оновлення key material для зниження ризику компрометації. |
+| **Rotation Lambda**      | Lambda function, яку Secrets Manager викликає для автоматичної зміни secret у цільовій системі.            |
+| **Staging Labels**       | Мітки Secrets Manager, що вказують на версії secret, наприклад AWSCURRENT, AWSPREVIOUS та AWSPENDING.      |
+| **AWSCURRENT**           | Staging label для актуальної версії secret, яку має використовувати застосунок.                            |
+| **AWSPREVIOUS**          | Staging label, що зазвичай позначає попередню версію secret.                                               |
+| **AWSPENDING**           | Staging label для нової версії secret під час процесу rotation.                                            |
+| **Version**              | Незмінна версія secret value; staging labels вказують на відповідні версії.                                |
+| **GetSecretValue**       | API, що повертає secret value та metadata для авторизованого principal.                                    |
+| **Resource Policy**      | Policy на secret, яка визначає principals/accounts із доступом до нього.                                   |
+| **Cross-account Access** | Доступ principal з іншого AWS account через resource policy, IAM permissions і за потреби AssumeRole.      |
+| **Caching**              | Локальне кешування secret для зменшення latency та API costs; cache має враховувати ротацію.               |
 
 ## Типовий екзаменаційний сценарій
 
@@ -35,14 +34,18 @@ Manager.
 Не логувати секрети. Застосунок має коректно перечитувати значення після
 ротації.
 
-## Що повторити
+## Як готуватися до цього сервісу
 
-- Призначення сервісу та типові сценарії використання.
-- Основні API, інтеграції та необхідні IAM permissions.
-- Обробку помилок, retries, throttling і logging, якщо вони застосовні.
-- Обмеження та взаємодію з іншими AWS-сервісами.
+- Розпізнавайте, яку проблему сервіс вирішує, і коли його обирати
+  замість альтернатив.
+- Звертайте увагу на IAM permissions, resource policies та service
+  roles.
+- Розумійте event flow, retries, idempotency, throttling і dead-letter
+  handling, якщо вони застосовні.
+- Порівнюйте availability, consistency, scaling, latency та cost
+  trade-offs.
 
-## Офіційна документація
+## Офіційні джерела
 
 - [AWS Documentation — AWS Secrets
   Manager](https://docs.aws.amazon.com/)
