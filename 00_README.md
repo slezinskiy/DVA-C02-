@@ -1,179 +1,135 @@
-# AWS Certified Developer -- Associate (DVA-C02): українська бібліотека термінів
+# AWS Certified Developer – Associate (DVA-C02): українська бібліотека термінів
 
-**Дата підготовки:** 17.11.2026\
-**Мова:** українська\
-**Формат:** Markdown
+**Мова:** українська  
+**Формат:** Markdown  
+**Охоплення:** 47 сервісів, 10 категорій
 
-> **Важливо:** AWS оголосила DVA-C03. Останній день складання DVA-C02
-> --- 30.11.2026; DVA-C03 починає проводитися з 01.12.2026. Цей комплект
-> описує саме DVA-C02. Якщо ваш іспит пізніше, звірте матеріали з
-> актуальним Exam Guide DVA-C03.
+> Навчальний конспект для DVA-C02. Перевіряйте актуальні вимоги та
+> статус іспиту на офіційній сторінці AWS Certification.
 
-## Вміст
+## Тематичні документи
 
-Цей комплект охоплює всі 47 сервісів з актуального офіційного переліку
-In-Scope для DVA-C02, згрупованих у 10 тематичних файлів. Для кожного
-сервісу наведено призначення, ключові терміни, типовий сценарій і
-екзаменаційну пастку.
-
-  Файл                              Категорія                              Сервісів
-  --------------------------------- ------------------------------------ ----------
-  `01_Analytics.md`                 Analytics                                     3
-  `02_Application_Integration.md`   Application Integration                       5
-  `03_Compute.md`                   Compute                                       3
-  `04_Containers.md`                Containers                                    3
-  `05_Databases.md`                 Database                                      4
-  `06_Developer_Tools.md`           Developer Tools                               8
-  `07_Management_Governance.md`     Management and Governance                     7
-  `08_Networking.md`                Networking and Content Delivery               5
-  `09_Security.md`                  Security, Identity, and Compliance            6
-  `10_Storage.md`                   Storage                                       3
-
-| `11_Exam_Cross_Reference.md` \| Порівняння сервісів, сценарії,
-  екзаменаційні пастки \| --- \|
-
-## Домени DVA-C02
-
-  Домен                                Частка оцінюваного змісту
-  ---------------------------------- ---------------------------
-  Development with AWS Services                              32%
-  Security                                                   26%
-  Deployment                                                 24%
-  Troubleshooting and Optimization                           18%
-
-## Рекомендований порядок
-
-1.  `05_Databases.md` та `03_Compute.md`.
-2.  `02_Application_Integration.md`.
-3.  `09_Security.md`.
-4.  `06_Developer_Tools.md` та `07_Management_Governance.md`.
-5.  `08_Networking.md`, `10_Storage.md`, `01_Analytics.md`.
-6.  `11_Exam_Cross_Reference.md`.
-
-## Офіційні джерела
-
--   [DVA-C02 Exam
-    Guide](https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02.html)
--   [In-Scope AWS
-    Services](https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/dva-02-in-scope-services.html)
--   [Domain 1 ---
-    Development](https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02-domain1.html)
--   [Domain 2 ---
-    Security](https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02-domain2.html)
--   [Domain 3 ---
-    Deployment](https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02-domain3.html)
--   [Domain 4 --- Troubleshooting and
-    Optimization](https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02-domain4.html)
--   [Technologies and
-    Concepts](https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/dva-technologies-concepts.html)
-
-## Примітка щодо повноти
-
-Офіційний AWS перелік in-scope є невичерпним і може змінюватися. Цей
-матеріал --- структурований навчальний конспект, а не гарантія появи
-кожного терміна на іспиті. Числові квоти, ціни та підтримувані режими
-перевіряйте в актуальній документації AWS.
+- [Analytics](01_Analytics.md)
+- [Application Integration](02_Application_Integration.md)
+- [Compute](03_Compute.md)
+- [Containers](04_Containers.md)
+- [Database](05_Databases.md)
+- [Developer Tools](06_Developer_Tools.md)
+- [Management and Governance](07_Management_Governance.md)
+- [Networking and Content Delivery](08_Networking.md)
+- [Security, Identity, and Compliance](09_Security.md)
+- [Storage](10_Storage.md)
 
 ## Окремі документи для кожного сервісу
 
 ### Analytics
 
--   `services/Athena.md` --- Amazon Athena
+- [Amazon Athena](services/Athena.md)
 
--   `services/Kinesis.md` --- Amazon Kinesis
+- [Amazon Kinesis](services/Kinesis.md)
 
--   `services/OpenSearch_Service.md` --- Amazon OpenSearch Service \###
-    Application Integration
+- [Amazon OpenSearch Service](services/OpenSearch_Service.md) \###
+  Application Integration
 
--   `services/AppSync.md` --- AWS AppSync
+- [AWS AppSync](services/AppSync.md)
 
--   `services/EventBridge.md` --- Amazon EventBridge
+- [Amazon EventBridge](services/EventBridge.md)
 
--   `services/SNS.md` --- Amazon SNS
+- [Amazon SNS](services/SNS.md)
 
--   `services/SQS.md` --- Amazon SQS
+- [Amazon SQS](services/SQS.md)
 
--   `services/Step_Functions.md` --- AWS Step Functions \### Compute
+- [AWS Step Functions](services/Step_Functions.md) \### Compute
 
--   `services/EC2.md` --- Amazon EC2
+- [Amazon EC2](services/EC2.md)
 
--   `services/Elastic_Beanstalk.md` --- AWS Elastic Beanstalk
+- [AWS Elastic Beanstalk](services/Elastic_Beanstalk.md)
 
--   `services/Lambda.md` --- AWS Lambda \### Containers
+- [AWS Lambda](services/Lambda.md) \### Containers
 
--   `services/ECR.md` --- Amazon ECR
+- [Amazon ECR](services/ECR.md)
 
--   `services/ECS.md` --- Amazon ECS
+- [Amazon ECS](services/ECS.md)
 
--   `services/EKS.md` --- Amazon EKS \### Database
+- [Amazon EKS](services/EKS.md) \### Database
 
--   `services/Aurora.md` --- Amazon Aurora
+- [Amazon Aurora](services/Aurora.md)
 
--   `services/DynamoDB.md` --- Amazon DynamoDB
+- [Amazon DynamoDB](services/DynamoDB.md)
 
--   `services/ElastiCache.md` --- Amazon ElastiCache
+- [Amazon ElastiCache](services/ElastiCache.md)
 
--   `services/RDS.md` --- Amazon RDS \### Developer Tools
+- [Amazon RDS](services/RDS.md) \### Developer Tools
 
--   `services/Amplify.md` --- AWS Amplify
+- [AWS Amplify](services/Amplify.md)
 
--   `services/CloudShell.md` --- AWS CloudShell
+- [AWS CloudShell](services/CloudShell.md)
 
--   `services/CodeArtifact.md` --- AWS CodeArtifact
+- [AWS CodeArtifact](services/CodeArtifact.md)
 
--   `services/CodeBuild.md` --- AWS CodeBuild
+- [AWS CodeBuild](services/CodeBuild.md)
 
--   `services/CodeDeploy.md` --- AWS CodeDeploy
+- [AWS CodeDeploy](services/CodeDeploy.md)
 
--   `services/CodePipeline.md` --- AWS CodePipeline
+- [AWS CodePipeline](services/CodePipeline.md)
 
--   `services/X_Ray.md` --- AWS X-Ray
+- [AWS X-Ray](services/X_Ray.md)
 
--   `services/Q_Developer.md` --- Amazon Q Developer \### Management and
-    Governance
+- [Amazon Q Developer](services/Q_Developer.md) \### Management and
+  Governance
 
--   `services/AppConfig.md` --- AWS AppConfig
+- [AWS AppConfig](services/AppConfig.md)
 
--   `services/CDK.md` --- AWS CDK
+- [AWS CDK](services/CDK.md)
 
--   `services/CloudFormation.md` --- AWS CloudFormation
+- [AWS CloudFormation](services/CloudFormation.md)
 
--   `services/CloudTrail.md` --- AWS CloudTrail
+- [AWS CloudTrail](services/CloudTrail.md)
 
--   `services/CloudWatch.md` --- Amazon CloudWatch
+- [Amazon CloudWatch](services/CloudWatch.md)
 
--   `services/CLI.md` --- AWS CLI
+- [AWS CLI](services/CLI.md)
 
--   `services/Systems_Manager.md` --- AWS Systems Manager \###
-    Networking and Content Delivery
+- [AWS Systems Manager](services/Systems_Manager.md) \### Networking and
+  Content Delivery
 
--   `services/API_Gateway.md` --- Amazon API Gateway
+- [Amazon API Gateway](services/API_Gateway.md)
 
--   `services/CloudFront.md` --- Amazon CloudFront
+- [Amazon CloudFront](services/CloudFront.md)
 
--   `services/Elastic_Load_Balancing.md` --- Elastic Load Balancing
+- [Elastic Load Balancing](services/Elastic_Load_Balancing.md)
 
--   `services/Route_53.md` --- Amazon Route 53
+- [Amazon Route 53](services/Route_53.md)
 
--   `services/VPC.md` --- Amazon VPC \### Security, Identity, and
-    Compliance
+- [Amazon VPC](services/VPC.md) \### Security, Identity, and Compliance
 
--   `services/Cognito.md` --- Amazon Cognito
+- [Amazon Cognito](services/Cognito.md)
 
--   `services/IAM.md` --- AWS IAM
+- [AWS IAM](services/IAM.md)
 
--   `services/KMS.md` --- AWS KMS
+- [AWS KMS](services/KMS.md)
 
--   `services/Secrets_Manager.md` --- AWS Secrets Manager
+- [AWS Secrets Manager](services/Secrets_Manager.md)
 
--   `services/STS.md` --- AWS STS
+- [AWS STS](services/STS.md)
 
--   `services/WAF.md` --- AWS WAF \### Storage
+- [AWS WAF](services/WAF.md) \### Storage
 
--   `services/EBS.md` --- Amazon EBS
+- [Amazon EBS](services/EBS.md)
 
--   `services/EFS.md` --- Amazon EFS
+- [Amazon EFS](services/EFS.md)
 
--   `services/S3.md` --- Amazon S3
+- [Amazon S3](services/S3.md)
 
-Окремі файли зібрані в підкаталозі `services/` усередині ZIP-архіву.
+## Додаткові матеріали
+
+- [Міжсервісні порівняння та екзаменаційні
+  сценарії](11_Exam_Cross_Reference.md)
+
+## Офіційні джерела
+
+- [DVA-C02 Exam
+  Guide](https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02.html)
+- [In-Scope AWS
+  Services](https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/dva-02-in-scope-services.html)
+- [AWS Certification](https://aws.amazon.com/certification/)
